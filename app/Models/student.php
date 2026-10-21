@@ -13,7 +13,4 @@ class student extends Model
     use HasFactory;
 
 
-    // protected $fillable = ['name', 'nim'];
-
-    // protected $guarded = ['id'];
 }

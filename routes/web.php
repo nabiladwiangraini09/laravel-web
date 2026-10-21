@@ -9,12 +9,11 @@ Route::get('/', function () {
 });
 
 
-
 Route::get('/student', function () {
-    return view('student.index', ['title' => 'Student']);
+    return view ('student.index', ['title' => 'Student']);
+
+
 });
-
-
 Route::get('/student/create', function () {
-    return view('student.create', ['title' => 'Create Student']);
+    return view ('student.create', ['title' => 'Create Student']);
 });

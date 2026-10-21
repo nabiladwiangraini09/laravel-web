@@ -1,12 +1,12 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Student;
 
-use App\Models\student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<student>
+ * @extends Factory<Student>
  */
 class StudentFactory extends Factory
 {
@@ -19,7 +19,7 @@ class StudentFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'nim' => fake()->name(),  //
+            'nim' => fake()->numerify('############'),
         ];
     }
 }

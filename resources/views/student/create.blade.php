@@ -1,9 +1,8 @@
 <x-app>
 
 
-    <x-slot:title> {{ $title }} </x-slot>
+    <x-slot:title>{{ $title }}</x-slot>
 
 
-    <h1 class="fw-bold">Form Create Student</h1>
-
+    <a class="btn btn-primary" href="/Student" role="button">Back to Student</a>
 </x-app>
