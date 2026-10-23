@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -12,7 +12,15 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+
+         return view('student.index',[  
+
+            'title' => 'Student',
+
+            'students'=> Student::latest()->get(),
+            
+
+            ]);
     }
 
     /**
@@ -20,7 +28,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+         return view('student.create', ['title' => 'Create Students']);
     }
 
     /**
@@ -28,13 +36,32 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+       $validated = $request->validate([
+        'name' =>  'required',
+        'nim' =>   'required|numeric|digits:12',
+    ],
+    [
+        'name.required' =>'Nama wajib di input',
+        'nim.required' =>'NIM wajib di input',
+        'nim.numeric' =>'NIM wajib berupa angka',
+        'nim.digits' =>'NIM wajib 12 digit',
+    ]
+    
+    
+    
+    );
+ 
+    Student::create($validated);
+
+ 
+    return redirect('/student');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(student $student)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +69,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(student $student)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +77,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +85,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(student $student)
+    public function destroy(string $id)
     {
         //
     }
